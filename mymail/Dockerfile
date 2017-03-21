@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get upgrade -y && \
     apt-get -y update && \
-    apt-get -y install apache2 php5 postfix wget vim squirrelmail dovecot-core dovecot-imapd
+    apt-get -y install apache2 php5 postfix squirrelmail dovecot-core dovecot-imapd
 
 RUN apt-get clean
 

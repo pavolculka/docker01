@@ -11,7 +11,7 @@ ENV PHP_POST_MAX_SIZE 10M
 
 RUN apt-get upgrade -y && \
     apt-get -y update && \
-    apt-get -y install git apache2 wget vim
+    apt-get -y install git apache2 wget
 
 RUN wget -qO - http://www.dotdeb.org/dotdeb.gpg | apt-key add - 
 ADD dotdeb.list /etc/apt/sources.list.d/dotdeb.list

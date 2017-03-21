@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get upgrade -y && \
     apt-get -y update && \
-    apt-get -y install mysql-server vim
+    apt-get -y install mysql-server
 
 RUN apt-get clean
 
