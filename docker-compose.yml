@@ -18,7 +18,7 @@
       - MYSQL_ROOT_PASSWORD=mypassword
 
   mailserver01:
-    image: helder/mailcatcher
+    build: ./mymail 
     ports:
       - 7777:80 
 

@@ -26,6 +26,9 @@ RUN apt-get clean
 ADD apache_default /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
+ADD run.sh /run.sh
+RUN chmod +x /run.sh
+
 
 RUN sed -ri -e "s/^upload_max_filesize.*/upload_max_filesize = ${PHP_UPLOAD_MAX_FILESIZE}/" \
         -e "s/^post_max_size.*/post_max_size = ${PHP_POST_MAX_SIZE}/" /etc/php/7.0/apache2/php.ini
@@ -34,6 +37,4 @@ RUN sed -ri -e "s/^upload_max_filesize.*/upload_max_filesize = ${PHP_UPLOAD_MAX_
 VOLUME  /var/www/html
 
 EXPOSE 80 
-#CMD source /etc/apache2/envvars
-#CMD apache2 -D FOREGROUND
-CMD exec apache2ctl -DFOREGROUND
+CMD /run.sh
