@@ -23,7 +23,7 @@ RUN apt-get -y install libapache2-mod-php7.0 php7.0 php7.0-apcu php7.0-apcu-bc p
 RUN apt-get clean
 
 # config to enable .htaccess
-ADD apache_default /etc/apache2/sites-available/000-default.conf
+ADD apache_domelia.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 ADD run.sh /run.sh
@@ -34,7 +34,7 @@ RUN sed -ri -e "s/^upload_max_filesize.*/upload_max_filesize = ${PHP_UPLOAD_MAX_
         -e "s/^post_max_size.*/post_max_size = ${PHP_POST_MAX_SIZE}/" /etc/php/7.0/apache2/php.ini
 
 
-VOLUME  /var/www/html
+VOLUME  /var/www/
 
 EXPOSE 80 
 CMD /run.sh

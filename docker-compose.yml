@@ -1,7 +1,7 @@
   webserver01:
     build: ./myweb
     volumes: 
-      - /var/tmp/web:/var/www/html
+      - /var/tmp/www:/var/www/
     ports:
       - 8888:80
     links:
